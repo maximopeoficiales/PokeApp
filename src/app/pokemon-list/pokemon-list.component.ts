@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Pokemon } from '../models/pokemon';
 import { Pokemons } from '../models/pokemons';
 import { PokeApiService } from '../services/poke-api.service';
 
@@ -9,12 +10,17 @@ import { PokeApiService } from '../services/poke-api.service';
 })
 export class PokemonListComponent implements OnInit {
   pokemons: Pokemons[] = [];
+  namePokemon: string = '';
+  @ViewChild('selectPokemons') pokemonSelected!: ElementRef;
   constructor(private service: PokeApiService) {}
 
   ngOnInit(): void {
     this.service.getPokemons().subscribe((pokemons) => {
       this.pokemons = pokemons;
-      console.log(this.pokemons);
     });
+  }
+
+  showPokemon(): void {
+    this.namePokemon = this.pokemonSelected.nativeElement.value;
   }
 }

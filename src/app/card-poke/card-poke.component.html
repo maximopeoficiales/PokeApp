@@ -1,0 +1,57 @@
+<div class="card mb-3 animate__animated animate__backInRight">
+  <ng-container *ngIf="!activeSpinner; else elseTemplate">
+    <div class="row no-gutters">
+      <div class="col-md-4 d-flex justify-content-center align-content-center">
+        <img
+          src="{{ imagenPokemon }}"
+          class="img-fluid"
+          height="100"
+          width="150"
+        />
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title text-center text-capitalize">{{ currentPokemon.name }}</h5>
+          <div class="card-text">
+            <div class="row">
+              <div class="col-4 text-center">
+                <b>{{ currentPokemon.weight }} kg</b>
+                <p><small>Weight</small></p>
+              </div>
+              <div class="col-4 text-center">
+                <b>{{ currentPokemon.base_experience }}</b>
+                <p><small>XP</small></p>
+              </div>
+              <div class="col-4 text-center">
+                <b>{{ currentPokemon.height }} m</b>
+                <p><small>Height</small></p>
+              </div>
+            </div>
+          </div>
+          <hr class="my-0" />
+          <ng-container *ngIf="moves.length != 0">
+            <div class="row my-2" *ngFor="let move of moves">
+              <div class="col-6 d-flex align-items-center">
+                <img
+                  src="/assets/pokebola.png"
+                  height="20"
+                  width="20"
+                  class="mx-2"
+                />
+                <small>{{ move }} </small>
+              </div>
+              <div class="col-6 d-flex align-items-center justify-content-end">
+                <small>{{ 10 }}</small>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+  <ng-template #elseTemplate>
+    <div class="text-center">
+      <div class="loader">Loading...</div>
+    </div>
+  </ng-template>
+</div>
