@@ -2,17 +2,17 @@
   <div class="col-md-8">
     <div class="">
       <div class="card-body animate__animated animate__swing">
-        <img class="img-fluid" src="/assets/logo.png" />
+        <img class="img-fluid" [src]="'/assets/logo.png'" />
         <p class="my-4 text-center">
           <a
-            class="btn btn-primary btn-lg d-inline-flex align-items-center "
+            class="btn btn-primary btn-lg d-inline-flex align-items-center"
             routerLink="/pokedex/pokemons"
           >
-              <img
-                src="/assets/pokebola.png"
-                class=""
-                style="height: 30px; margin-right: 10px;"
-              />
+            <img
+              [src]="'/assets/pokebola.png'"
+              class=""
+              style="height: 30px; margin-right: 10px"
+            />
             <span> Show Pokemons </span>
           </a>
         </p>
